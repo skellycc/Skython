@@ -21,6 +21,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 #include "token.h"
 
@@ -32,7 +33,7 @@ namespace Compiler
 
 class lexer final {
     std::string m_Source;
-    std::vector<Compiler::token_t> m_Tokens;
+    std::vector<std::unordered_map<char, Compiler::token_t>> m_Tokens;
     int m_Cursor;
     char m_Char;
 public:
@@ -42,7 +43,7 @@ protected:
     void advance_source() noexcept(false);
     void skip_whitespace() noexcept;
 public:
-    std::vector<Compiler::token_t> generate_tokens() noexcept(false);
+    std::vector<std::unordered_map<char, Compiler::token_t>> generate_tokens() noexcept(false);
 };
 
 }

@@ -24,21 +24,15 @@ int main(void) {
     const std::string source = "1 + 1";
     Skython::Compiler::lexer lex(source);
     
-    std::vector<Skython::Compiler::token_t> tokens = lex.generate_tokens();
-    
-    for (const auto& token : tokens) {
-        switch(token) {
-            case Skython::Compiler::token_t::TOKEN_NUMERICAL: {
-                std::cout << "Number\n";
-                break;
-            }
-            case Skython::Compiler::token_t::TOKEN_ARITHMETIC: {
-                std::cout << "Operator\n";
-                break;
-            }
-            default: {
-                std::cout << "Unknown\n";
-            }
+    std::vector<std::unordered_map<char, Skython::Compiler::token_t>> tokens = lex.generate_tokens();
+
+
+    for (const auto& tokenMap : tokens) {
+        for (const auto& pair : tokenMap) {
+            char character = pair.first;
+            Skython::Compiler::token_t tokenType = pair.second;
+            
+            std::cout << "CHARACTER: " << character << " TOKEN TYPE: " << tokenType << std::endl;
         }
     }
 }

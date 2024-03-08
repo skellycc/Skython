@@ -24,8 +24,8 @@ namespace Compiler
 {
 
 typedef enum token {
-    TOKEN_NUMERICAL,
-    TOKEN_ARITHMETIC,
+    TOKEN_NUMERICAL, // 0
+    TOKEN_ARITHMETIC, // 1
     TOKEN_OPEN_PAREN,
     TOKEN_CLOSE_PAREN,
     TOKEN_WHITESPACE

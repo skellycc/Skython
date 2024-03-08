@@ -34,19 +34,21 @@ void Compiler::lexer::skip_whitespace() noexcept {
     if (std::isspace(this->m_Char)) { /* IGNORE */ }
 }
 
-std::vector<Compiler::token_t> Compiler::lexer::generate_tokens() noexcept(false) {
+std::vector<std::unordered_map<char, Compiler::token_t>> Compiler::lexer::generate_tokens() noexcept(false) {
     do {
         this->skip_whitespace();        
 
         if (std::isdigit(this->m_Char)) {
-            this->m_Tokens.push_back(TOKEN_NUMERICAL);
+            std::unordered_map<char, Compiler::token_t> tokenMap;
+            tokenMap[this->m_Char] = TOKEN_NUMERICAL;
+            this->m_Tokens.push_back(tokenMap);
         }
         
         if (this->m_Char == '+') {
-            this->m_Tokens.push_back(TOKEN_ARITHMETIC);
+            std::unordered_map<char, Compiler::token_t> tokenMap;
+            tokenMap[this->m_Char] = TOKEN_ARITHMETIC;
+            this->m_Tokens.push_back(tokenMap);
         }
-        
-        std::cout << this->m_Source[this->m_Cursor] << "\n";
         
         this->advance_source();
         
