@@ -1,2 +1,7 @@
-node_modules
-*.vsix
+.vscode
+.vscodeignore
+.DS_Store
+
+DerivedData
+Skython.xcodeproj
+build
