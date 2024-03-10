@@ -1,3 +1,19 @@
 Skython - An alternative to Python
 
+What is Skython?
+
+Skython is an attempt at trying to improve the Python language performance and execution behaviour
+while upgrading the language with new syntax features and custom behvaiour. Since this is an experiemental
+project, nothing is guaranteed to work as expected, more just to see if it can execute the instruction at all.
+It is an indie project and therefore bugs are bound to occur, nothing is perfect.
+
+Skython Architecture:
+
+Different to Python. Compiler and a Virtual Machine, no interpreter. This language is dynamic and type hinting
+is an optional feature for the programmer. Memory management and similar behvaiour is managed
+by a basic garbage collector designed just to keep memory at a minimum capacity.
+
+Compiling and Running:
+Not available yet.
+
 More Information Coming Soon
