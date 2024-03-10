@@ -1,0 +1,23 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "969D2DA777038456B4076B8F6EA7BAC8BEDACD8F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "969D2DA777038456B4076B8F6EA7BAC8BEDACD8F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DA500D8F-60D3-49F7-B10A-60A35AE201D3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "969D2DA777038456B4076B8F6EA7BAC8BEDACD8F" : "Skython\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Skython",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Skython.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/skellycc\/Skython.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "969D2DA777038456B4076B8F6EA7BAC8BEDACD8F"
+    }
+  ]
+}

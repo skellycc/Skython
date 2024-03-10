@@ -22,6 +22,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <tuple>
 
 #include "token.h"
 
@@ -36,13 +37,20 @@ class lexer final {
     std::vector<std::unordered_map<char, Compiler::token_t>> m_Tokens;
     int m_Cursor;
     char m_Char;
+private:
+    std::tuple<bool, Compiler::token_t> extract_fp_value(const char&) noexcept(false);
+    std::tuple<bool, Compiler::token_t> extract_arithmetic_op(const char&) noexcept(false);
+
+    void generate_numerical_tokens() noexcept(false);
 public:
+    lexer();
     lexer(const std::string&);
     ~lexer();
 protected:
     void advance_source() noexcept(false);
     void skip_whitespace() noexcept;
 public:
+    void set_source(const std::string&) noexcept;
     std::vector<std::unordered_map<char, Compiler::token_t>> generate_tokens() noexcept(false);
 };
 

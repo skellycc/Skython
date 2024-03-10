@@ -21,17 +21,22 @@
 
 int main(void) {
     
-    const std::string source = "1 + 1";
-    Skython::Compiler::lexer lex(source);
-    
-    std::vector<std::unordered_map<char, Skython::Compiler::token_t>> tokens = lex.generate_tokens();
+    const std::string source = "1 + 1\n1.0 + 1";
 
+    std::cout << "\n";
+    std::cout << "Skython 0.0.1 Shell" << std::endl;
+
+    std::string in;
+    std::cout << "Shell: >> ";
+    std::getline(std::cin, in);
+
+    Skython::Compiler::lexer lex(in);
+    std::vector<std::unordered_map<char, Skython::Compiler::token_t>> tokens = lex.generate_tokens();
 
     for (const auto& tokenMap : tokens) {
         for (const auto& pair : tokenMap) {
             char character = pair.first;
             Skython::Compiler::token_t tokenType = pair.second;
-            
             std::cout << "CHARACTER: " << character << " TOKEN TYPE: " << tokenType << std::endl;
         }
     }

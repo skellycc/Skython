@@ -1,5 +1,2 @@
-build
-DerivedData
-Skython.xcodeproj
-
-.DS_Store
+node_modules
+*.vsix

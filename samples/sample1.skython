@@ -1,0 +1,58 @@
+"""
+Basic Program in Skython
+Copyright (c) 2024 Mustafa Malik
+
+"""
+
+import stdlib
+
+"""
+Base class for some random names system
+"""
+class BaseClass:
+
+   static parentNameId: str = "CustomID"
+
+   def __init__(self, name: str) -> self:
+      self.name = name
+
+   def get_name(self) -> str:
+      return self.name
+
+   def get_id(self) -> str:
+      return Self.parentNameId 
+
+class MyCat(BaseClass):
+
+   def __init__(self, name: str) -> self:
+      super.__init__(self.name)
+
+   def get_name(self) -> str:
+      return super.get_name()
+
+   def get_id(self) -> str:
+      return super.get_id()
+
+
+if __name__ == "__main__":
+   cat = MyCat("Snowy")
+
+   print(cat.get_name())
+   print(cat.get_id())
+
+   if (cat.get_id() == null):
+      print("Why is the unique ID null?")
+
+   match cat.get_name():
+      case "Snowy":
+         print("Snowy is a snow name!")
+      case "Bobby":
+         print("Weird choice but okay")
+      case "Walnut":
+         print("You're strange...")
+
+   has_mem: bool = stdlib.request_memory(10 * 1000)
+   if not has_mem:
+      print("Failed")
+   else:
+      print("Success")

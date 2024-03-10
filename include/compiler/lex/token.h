@@ -24,11 +24,23 @@ namespace Compiler
 {
 
 typedef enum token {
-    TOKEN_NUMERICAL, // 0
-    TOKEN_ARITHMETIC, // 1
+    
+    /* Arithmetic */
+    TOKEN_NUMERICAL,
+    TOKEN_FLOATING_POINT,
+    
+    TOKEN_ADD_OP,
+    TOKEN_SUB_OP,
+    TOKEN_MUL_OP,
+    TOKEN_DIV_OP,
+    TOKEN_MOD_OP,
+    TOKEN_NO_REMAINDER_OP,
+    
     TOKEN_OPEN_PAREN,
     TOKEN_CLOSE_PAREN,
-    TOKEN_WHITESPACE
+    TOKEN_WHITESPACE,
+    
+    TOKEN_UNKNOWN
 } token_t;
 
 }
