@@ -23,7 +23,8 @@
 
 using namespace Skython;
 
-/// TODO: Add no reminder operator later
+/// TODO: Add no remainder operator
+/// TODO: Add pow operator
 
 static std::unordered_map<char, Compiler::token_t> __arithmetic_logic = {
     {'+', Skython::Compiler::TOKEN_ADD_OP},
