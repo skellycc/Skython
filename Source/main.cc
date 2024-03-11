@@ -17,6 +17,8 @@
  */
 
 #include "compiler/lex/lexer.h"
+#include "compiler/gram/token_validator.h"
+
 #include <iostream>
 
 int main(void) {
@@ -42,6 +44,13 @@ int main(void) {
             std::string character = pair.first;
             Skython::Compiler::token_t tokenType = pair.second;
             std::cout << "CHARACTER: " << character << " TOKEN TYPE: " << tokenType << std::endl;
+
+            std::cout << "VERIFYING TOKENS\n";
+            if (Skython::Compiler::token_validator::check_digit(pair.first, tokenMap)) {
+                std::cout << character << " TOKEN IS VALID\n";
+            } else {
+                std::cout << character << " IS NOT A VALID DIGIT\n";
+            }
         }
     }
 }

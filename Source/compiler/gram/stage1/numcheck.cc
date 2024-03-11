@@ -1,4 +1,5 @@
-#include "compiler/gram/numcheck.h"
+#include "compiler/gram/stage1/numcheck.h"
+#include "compiler/gram/token_validator.h"
 
 // STAGE 1: Verify the correct characters are mapped to the right tokens
 // STAGE 2: Verify the grammar of the tokens
@@ -13,7 +14,6 @@ void Compiler::numcheck::set_tokens(const std::vector<std::unordered_map<std::st
 }
 
 const bool Compiler::numcheck::validate_tokens() const noexcept {
-    bool fresult = false;    
     /*
         Verify:
             - TOKEN DIGIT       == DIGIT
@@ -22,14 +22,13 @@ const bool Compiler::numcheck::validate_tokens() const noexcept {
             - TOKEN BIDMAS      == LOGIC FORMAT
     */
     for (auto& vec_map : this->m_Tokens) {
-        for (auto& keys : vec_map) {
-            /* Mapped Children */
-            const std::string target    = keys.first;
-            const Compiler::token_t     = keys.second;
-            /* Validation Progress */
+        for (auto& map : vec_map) {
             /// TODO: New class to verify tokens separately
+            if (Compiler::token_validator::check_digit(map.first, vec_map)) {
+                return true;
+            }
         }
     }
     /* Result of validation checking */
-    return fresult;
+    return false;
 }
