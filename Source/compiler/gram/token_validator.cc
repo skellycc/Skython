@@ -37,7 +37,7 @@ std::tuple<bool, std::string> Compiler::token_validator::check_fp_digit(const st
         if (key[0] == '.')
             goto invalid_syntax;
         do {
-            if (c > 1)
+            if (dot_count > 1)
                 goto invalid_syntax;
             if (std::isdigit(key[0])) {
                 if (key[c] == '.')
