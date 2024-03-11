@@ -1,6 +1,6 @@
 STD_VER 	:= -std=c++11
 INCLUDES 	:= -Iinclude
-SOURCES		:= ./Source/compiler/lex/*.cc ./Source/compiler/gram/*.cc  ./Source/compiler/gram/stage1/*.cc
+SOURCES		:= ./Source/compiler/lex/*.cc ./Source/compiler/gram/*.cc ./Source/compiler/gram/stage1/*.cc ./Source/compiler/parser/*.cc
 BUILD_LOC	:= ./build/skcc
 
 all: clean

@@ -21,6 +21,7 @@
 
 #include <string>
 #include <map>
+#include <tuple>
 
 #include "compiler/lex/token.h"
 
@@ -33,8 +34,8 @@ private:
     token_validator()   = delete;
     ~token_validator()  = delete;
 public:
-    static bool check_digit(const std::string&, const std::unordered_map<std::string, Compiler::token_t>&) noexcept;
-    static bool check_fp_digit(const std::string&, const std::unordered_map<std::string, Compiler::token_t>&) noexcept;
+    static std::tuple<bool, std::string> check_digit(const std::string&, const std::unordered_map<std::string, Compiler::token_t>&) noexcept;
+    static std::tuple<bool, std::string> check_fp_digit(const std::string&, const std::unordered_map<std::string, Compiler::token_t>&) noexcept;
 };
 
 }

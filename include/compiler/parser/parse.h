@@ -16,36 +16,30 @@
  *   along with this program.  If not, see <https://www.gnu.org/licenses/>.          
  */
 
-#ifndef __LIB_SKYTHON__EXCEPT_H__
-#define __LIB_SKYTHON__EXCEPT_H__
+#ifndef __LIB_SKYTHON_PARSER_H__
+#define __LIB_SKYTHON_PARSER_H__
 
-#include <string>
+#include <vector>
+#include <tuple>
+#include <map>
+
+#include "compiler/lex/token.h"
 
 namespace Skython {
 namespace Compiler {
-namespace Exceptions
+namespace Parser
 {
 
-class _except {
-protected:
-    std::string _cause;
-    std::string _file;
-    int line;
-    int row;
+class parse final {
+private:
+    parse() = delete;
+    ~parse() = delete;
 public:
-    _except() = default;
-    _except(const std::string& cause)  : _cause(cause), line(0), row(0) {}
-    virtual ~_except() = 0;
-public:
-    virtual void raise()                                const noexcept  = 0;
-    virtual const std::string get_cause()               const noexcept  = 0;
-    virtual const std::string get_localized_cause()     noexcept        = 0;
+    static std::tuple<bool, std::string> verify_tokens(const std::vector<std::unordered_map<std::string, Compiler::token_t>>&) noexcept;
 };
 
-_except::~_except() { }
-
 }
 }
 }
 
-#endif /* __LIB_SKYTHON__EXCEPT_H__ */
+#endif /* __LIB_SKYTHON_PARSER_H__ */

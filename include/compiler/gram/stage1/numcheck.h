@@ -31,13 +31,13 @@ namespace Compiler
 
 class numcheck final {
 private:
-    std::vector<std::unordered_map<std::string, Compiler::token_t>> m_Tokens;
+    static std::vector<std::unordered_map<std::string, Compiler::token_t>> s_Tokens;
+private:
+    numcheck() = delete;
+    ~numcheck() = delete;
 public:
-    numcheck();
-    ~numcheck();
-public:
-    void set_tokens(const std::vector<std::unordered_map<std::string, Compiler::token_t>>&) noexcept;
-    const bool validate_tokens() const noexcept;
+    static void set_tokens(const std::vector<std::unordered_map<std::string, Compiler::token_t>>&) noexcept;
+    static std::tuple<bool, std::string> validate_tokens() noexcept;
 };
 
 }

@@ -20,6 +20,8 @@
 #include <iostream>
 
 #include "compiler/lex/lexer.h"
+#include "compiler/parser/parse.h"
+#include "compiler/exceptions/badnum.h"
 
 using namespace Skython;
 
@@ -135,6 +137,15 @@ std::vector<std::unordered_map<std::string, Compiler::token_t>> Compiler::lexer:
 
         this->advance_source();
     } while (this->m_Char != '\0');
+
+    /* Parse now */
+    const auto result = Compiler::Parser::parse::verify_tokens(this->m_Tokens);
+    if (std::get<0>(result))
+        std::cout << "Tokens are valid!\n";
+    else {
+        const auto& err  = Compiler::Exceptions::badnum("Exception in <stdin> main:\n\tBad Number: " + std::get<1>(result) + "\n");
+        err.raise();
+    }
 
     return this->m_Tokens;
 }

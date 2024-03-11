@@ -22,13 +22,6 @@
 #include <iostream>
 
 int main(void) {
-    
-    char x = ';';
-    std::string y(1, x);
-    std::cout << y << std::endl;
-
-    const std::string source = "1 + 1\n1.0 + 1";
-
     std::cout << "\n";
     std::cout << "Skython 0.0.1 Shell" << std::endl;
 
@@ -44,13 +37,6 @@ int main(void) {
             std::string character = pair.first;
             Skython::Compiler::token_t tokenType = pair.second;
             std::cout << "CHARACTER: " << character << " TOKEN TYPE: " << tokenType << std::endl;
-
-            std::cout << "VERIFYING TOKENS\n";
-            if (Skython::Compiler::token_validator::check_digit(pair.first, tokenMap)) {
-                std::cout << character << " TOKEN IS VALID\n";
-            } else {
-                std::cout << character << " IS NOT A VALID DIGIT\n";
-            }
         }
     }
 }

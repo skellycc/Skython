@@ -16,36 +16,14 @@
  *   along with this program.  If not, see <https://www.gnu.org/licenses/>.          
  */
 
-#ifndef __LIB_SKYTHON__EXCEPT_H__
-#define __LIB_SKYTHON__EXCEPT_H__
+#include "compiler/parser/parse.h"
+#include "compiler/gram/token_validator.h"
+#include "compiler/gram/stage1/numcheck.h"
 
-#include <string>
+using namespace Skython;
 
-namespace Skython {
-namespace Compiler {
-namespace Exceptions
-{
-
-class _except {
-protected:
-    std::string _cause;
-    std::string _file;
-    int line;
-    int row;
-public:
-    _except() = default;
-    _except(const std::string& cause)  : _cause(cause), line(0), row(0) {}
-    virtual ~_except() = 0;
-public:
-    virtual void raise()                                const noexcept  = 0;
-    virtual const std::string get_cause()               const noexcept  = 0;
-    virtual const std::string get_localized_cause()     noexcept        = 0;
-};
-
-_except::~_except() { }
-
+std::tuple<bool, std::string> Compiler::Parser::parse::verify_tokens(const std::vector<std::unordered_map<std::string, Compiler::token_t>>& tokens) noexcept {
+    /* Validate Numerical Values */
+    Compiler::numcheck::set_tokens(tokens);
+    return Compiler::numcheck::validate_tokens();
 }
-}
-}
-
-#endif /* __LIB_SKYTHON__EXCEPT_H__ */
